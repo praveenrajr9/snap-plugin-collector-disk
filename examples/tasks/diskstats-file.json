@@ -19,18 +19,19 @@
         "/intel/procfs/disk/*/weighted_io_time": {},
         "/intel/procfs/disk/*/pending_ops": {}
       },
-      "config": {
-        "/intel/procfs/disk": {
-          "proc_path": "/var/procfs"
-        }
-      },
       "process": null,
       "publish": [
         {
-          "plugin_name": "file",
-          "config": {
-            "file": "/tmp/published_diskstats.log"
+ 	   "plugin_name": "influxdb",
+           "config": {
+            "host": "10.223.197.138",
+            "port": 8086,
+            "database": "disk_metrics",
+            "user": "intel",
+            "password": "intel123"
+
           }
+
         }
       ]
     }

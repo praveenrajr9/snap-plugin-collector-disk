@@ -363,8 +363,9 @@ func (dc *DiskCollector) calcDerivatives() error {
 			diffVal = val - valPrev
 		}
 
-		deriveVal := float64(diffVal) / interval
-
+		//deriveVal := float64(diffVal) / interval
+                // making per interval stats not per second stats 
+                deriveVal := float64(diffVal)
 		disk, nMetric := parseMetricKey(key)
 
 		if _, exists := avgDiskTime[disk]; exists == false {
